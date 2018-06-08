@@ -71,7 +71,7 @@
     implicit none
 
     type(c_ptr),intent(in) :: cp         !! pointer to a container
-    type(c_ptr),intent(inout) :: string  !! a preallocated string buffer that 
+    type(c_ptr),intent(inout) :: string  !! a preallocated string buffer that
                                          !! the string will copied into
 
     type(container),pointer :: c
@@ -118,7 +118,7 @@
     subroutine c_ptr_to_json(cp,json)
 
     implicit none
-  
+
     type(c_ptr),intent(in)        :: cp   !! a `c_char_p` from python containing a JSON string.
     type(json_file),intent(inout) :: json !! the JSON data structure
 
@@ -142,7 +142,7 @@
 
     implicit none
 
-    type(c_ptr),intent(in)  :: cp   !! a `c_char_p` from python 
+    type(c_ptr),intent(in)  :: cp   !! a `c_char_p` from python
     type(c_ptr),intent(out) :: ccp  !! pointer to a container that contains the string
 
     character(len=:),allocatable :: str !! fortran version of the string
@@ -160,7 +160,7 @@
 
     else
         ccp = c_null_ptr
-    end if 
+    end if
 
     end subroutine c_ptr_to_container_c_ptr
 !*****************************************************************************************
@@ -173,7 +173,7 @@
 
     implicit none
 
-    type(c_ptr),intent(in) :: cp         !! a `c_char_p` from python 
+    type(c_ptr),intent(in) :: cp         !! a `c_char_p` from python
     character(len=:),allocatable :: fstr !! the corresponding fortran string
 
     integer :: ilen  !! string length
@@ -200,7 +200,7 @@
     implicit none
 
     type(json_file),intent(inout) :: json  !! JSON data
-    type(c_ptr) :: cp !! a pointer to a container 
+    type(c_ptr) :: cp !! a pointer to a container
                       !! containing the JSON data as a string
     logical,intent(in) :: destroy  !! to also destroy the JSON file
                                    !! (must be destroyed on the fortran
@@ -234,12 +234,12 @@
     implicit none
 
     character(len=*),intent(in) :: fstr  !! a normal fortran string
-    type(c_ptr) :: buffer                !! a preallocated string buffer that 
+    type(c_ptr) :: buffer                !! a preallocated string buffer that
                                          !! the string will copied into
 
     integer :: ilen !! string length of buffer
 
-    ilen = strlen(buffer) 
+    ilen = strlen(buffer)
 
     block
         character(kind=c_char,len=ilen+1),pointer :: s
@@ -271,7 +271,7 @@
     !call json%initialize()
     ! this causes the print to fail when compiled with ifort.
     ! gfortran works fine.  bug???
-    ! call json%initialize(no_whitespace=.true.)   
+    ! call json%initialize(no_whitespace=.true.)
 
     call c_ptr_to_json(cp,json)
 
