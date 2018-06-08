@@ -1,6 +1,6 @@
 ### Description
 
-Interfacing Fortran and Python via JSON. This is code described in [this blog post](http://degenerateconic.com/fortran-json-python/).
+A demonstration of interfacing Fortran and Python via JSON. This code is described in [this blog post](http://degenerateconic.com/fortran-json-python/).
 
 ### Building
 
