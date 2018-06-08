@@ -1,10 +1,12 @@
 ### Description
 
-Interfacing Fortran and Python via JSON
+Interfacing Fortran and Python via JSON. This is code described in [This blog post](http://degenerateconic.com/fortran-json-python/).
 
 ### Building
 
-* A [FoBiS](https://github.com/szaghi/FoBiS) configuration file (`python_json_interface.fobis`) is also provided that can also build the shared library. Use the `mode` flag to indicate what to build. For example:
+The Fortran file should be built as a shared library so that it can be called from Python.
+
+A [FoBiS](https://github.com/szaghi/FoBiS) configuration file (`python_json_interface.fobis`) is also provided that can also build the shared library. Use the `mode` flag to indicate what to build. For example:
 
   * To build the shared library using gfortran: `FoBiS.py build -f python_json_interface.fobis -mode shared-gnu`
   * To build the shared library using ifort: `FoBiS.py build -f python_json_interface.fobis -mode shared-intel`
